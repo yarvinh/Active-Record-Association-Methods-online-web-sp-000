@@ -7,15 +7,13 @@ class Song < ActiveRecord::Base
   end
 
   def drake_made_this
-    if self.artist == nil
-    if Artist.find_by(name: "Drake") == nil
-       song_artist = Artist.create(name: "Drake")
-       self.artist = song_artist
-    else
-      self.artist = Artist.find_by(name: "Drake")
-    end
-  end
-end
-
+       if self.artist == nil
+          if Artist.find_by(name: "Drake") == nil
+             song_artist = Artist.create(name: "Drake")
+             self.artist = song_artist
+          else
+             self.artist = Artist.find_by(name: "Drake")
+          end
+       end
   end
 end
